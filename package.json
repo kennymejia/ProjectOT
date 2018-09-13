@@ -1,0 +1,19 @@
+{
+  "name": "kmejiaproject",
+  "version": "1.0.0",
+  "description": "CMPT 221 Project Oregon Trail",
+  "main": "oregonTrail.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaristGormanly/kmejia-project.git"
+  },
+  "author": "kenny mejia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaristGormanly/kmejia-project/issues"
+  },
+  "homepage": "https://github.com/MaristGormanly/kmejia-project#readme"
+}
