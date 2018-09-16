@@ -1,6 +1,12 @@
 const express = require('express')
 const app = express()
+const port = 1337
 
-app.get('/', (req, res) => res.send('Hello World!'))
+app.get('/', function (req, res) 
+{ 
+	res.sendFile( 'index.html', {root: './client/views'} )
+})
 
-app.listen(1337, () => console.log('Example app listening on port 1337!'))
+app.use(express.static('client/public'));
+
+app.listen(port, () => console.log(`Example app listening on port ${port}!`))
