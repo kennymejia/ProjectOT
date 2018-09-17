@@ -1,0 +1,9 @@
+div.title {
+    position: relative;
+    width: 1000px;
+    height: 618px;
+} 
+div.terrain {
+    position: absolute;
+    top: 110px;
+}

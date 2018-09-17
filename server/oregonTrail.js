@@ -4,13 +4,13 @@ const port = 1337
 
 app.get('/', function (req, res) { 
 	res.sendFile('index.html', {root: './client/views'}) })
-app.get('/mainmenu', function (req, res) { 
+app.get('/mainmenu.html', function (req, res) { 
 	res.sendFile('mainmenu.html', {root: './client/views'}) })
-app.get('/setup', function (req, res) { 
+app.get('/setup.html', function (req, res) { 
 	res.sendFile('setup.html', {root: './client/views'}) })
-app.get('/trail', function (req, res) { 
+app.get('/trail.html', function (req, res) { 
 	res.sendFile('trail.html', {root: './client/views'}) })
-app.get('/topten', function (req, res) { 
+app.get('/topten.html', function (req, res) { 
 	res.sendFile('topten.html', {root: './client/views'}) })
 
 app.use(express.static('client/public'));

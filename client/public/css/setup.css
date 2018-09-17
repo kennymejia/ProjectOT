@@ -1,0 +1,71 @@
+* {box-sizing: border-box;}
+body {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+.choice{
+	position: fixed;
+	color: white;
+	width: 600px;
+	height: 140px;
+	margin: 220px  210px;
+	font-size: 30px;
+	text-align: center;
+}
+.banker{
+	position: fixed;
+	color: white;
+	width: 600px;
+	height: 140px;
+	margin: 320px  200px;
+	font-size: 20px;
+	text-align: center;
+}
+.carpenter{
+	position: fixed;
+	color: white;
+	width: 600px;
+	height: 140px;
+	margin: 370px  200px;
+	font-size: 20px;
+	text-align: center;
+}
+.farmer{
+	position: fixed;
+	color: white;
+	width: 600px;
+	height: 140px;
+	margin: 420px  200px;
+	font-size: 20px;
+	text-align: center;
+}
+.differences{
+	position: fixed;
+	color: white;
+	width: 600px;
+	height: 140px;
+	margin: 470px  210px;
+	font-size: 20px;
+	text-align: center;
+}
+.continue {
+    position: fixed;
+    color: white;
+    margin: 550px 300px;
+    text-align: center;
+    width: 400px;
+    height: 400px;
+    -webkit-animation: fadeinout 2s infinite;
+    animation: fadeinout 4s infinite;
+}
+
+@-webkit-keyframes fadeinout {
+  0%,100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+@keyframes fadeinout {
+  0%,100% { opacity: 0; }
+  50% { opacity: 1; }
+}
