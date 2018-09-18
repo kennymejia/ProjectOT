@@ -1,9 +1,82 @@
-div.title {
-    position: relative;
+* {box-sizing: border-box;}
+body {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+.days{
+	position: fixed;
+	color: white;
+	width: 600px;
+	height: 140px;
+	margin: 530px  -200px;
+	font-size: 15px;
+	text-align: center;
+}
+.miles{
+	position: fixed;
+	color: white;
+	width: 600px;
+	height: 140px;
+	margin: 560px  -200px;
+	font-size: 15px;
+	text-align: center;
+}
+.health{
+	position: fixed;
+	color: white;
+	width: 600px;
+	height: 140px;
+	margin: 590px  -190px;
+	font-size: 15px;
+	text-align: center;
+}
+.weather{
+	position: fixed;
+	color: white;
+	width: 600px;
+	height: 140px;
+	margin: 530px  180px;
+	font-size: 15px;
+	text-align: center;
+}
+.pace{
+	position: fixed;
+	color: white;
+	width: 600px;
+	height: 140px;
+	margin: 560px  180px;
+	font-size: 15px;
+	text-align: center;
+}
+.terrain{
+	position: fixed;
+	color: white;
+	width: 600px;
+	height: 140px;
+	margin: 590px  180px;
+	font-size: 15px;
+	text-align: center;
+}
+.alive{
+	position: fixed;
+	color: white;
+	width: 600px;
+	height: 140px;
+	margin: 530px  500px;
+	font-size: 15px;
+	text-align: center;
+}
+.title {
+    left: 0px;
+    top: 0px;
+    z-index: 1px;
     width: 1000px;
     height: 618px;
 } 
-div.terrain {
-    position: absolute;
-    top: 110px;
+.terrainwall {
+    position: relative;
+    left: 0px;
+    top: -510px;
+    z-index: 2px;
 }
