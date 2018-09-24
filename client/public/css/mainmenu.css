@@ -53,3 +53,23 @@ body {
 	font-size: 30px;
 	text-align: center;
 }
+.continue {
+    position: fixed;
+    color: white;
+    margin: 550px 300px;
+    text-align: center;
+    width: 400px;
+    height: 400px;
+    -webkit-animation: fadeinout 2s infinite;
+    animation: fadeinout 4s infinite;
+}
+
+@-webkit-keyframes fadeinout {
+  0%,100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+@keyframes fadeinout {
+  0%,100% { opacity: 0; }
+  50% { opacity: 1; }
+}

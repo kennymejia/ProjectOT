@@ -15,15 +15,26 @@
 		<div class="topten">
 			3. See The Oregon Top 10
 		</div>
-		<div class="sound">
-			4. Turn Sound (On/Off)
+		<div class="sound" id="sound">
+			4. Turn Sound Off
 		</div>
 		<div class="mainmenu">
 			Main Menu
 		</div>
+		<div class="continue">
+			Press The Spacebar To Go Back
+		</div>
+		<audio autoplay loop id="theme">
+		  	<source src="/music/theme.mp3" type="audio/mpeg">
+		  	Your browser does not support the audio element.
+		</audio>
 		<img src="/images/oregontitle.jpg" alt="Oregon Trail Title">
 		<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js'></script>
 	    <script type='text/javascript' src='/js/mainmenu.js'></script>
 	    <script type='text/javascript' src='/js/global.js'></script>
 	</body>
 </html>
+
+document.getElementById("editable").onkeypress = function (){
+    this.innerHTML = this.innerHTML.replace("this","that");
+}
