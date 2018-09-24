@@ -1,4 +1,5 @@
 var isPlaying = false;
+sound.innerHTML = "4. Turn Sound OFF";
 
 document.body.addEventListener("keydown", function (event) {
     if (event.keyCode === 49) {
@@ -14,13 +15,11 @@ document.body.addEventListener("keydown", function (event) {
 		isPlaying = !isPlaying; 
 		if(isPlaying){
 			theme.pause();
-			var ed = document.getElementByID("sound");
-			ed.innerHTML = ed.innerHTML.replace("4. Turn Sound Off","4. Turn Sound On");
+			sound.innerHTML = "4. Turn Sound ON";
 		}		
 		else{
 			theme.play();
-			var ed = document.getElementByID("sound");
-			ed.innerHTML = ed.innerHTML.replace("4. Turn Sound On","4. Turn Sound On");
+			sound.innerHTML = "4. Turn Sound OFF";
 		}
     }
     else if (event.keyCode === 32) {

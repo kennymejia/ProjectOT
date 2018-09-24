@@ -34,8 +34,7 @@ body {
 	font-size: 20px;
 	text-align: center;
 }
-
-.sound{
+#sound{
 	position: fixed;
 	color: white;
 	width: 600px;
