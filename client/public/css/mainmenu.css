@@ -52,6 +52,9 @@ body {
 	font-size: 30px;
 	text-align: center;
 }
+/*
+ * TEXT FOR CONTINUE MESSAGE USES CSS TO FADE IN AND OUT
+ */
 .continue {
     position: fixed;
     color: white;
