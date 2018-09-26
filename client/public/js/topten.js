@@ -1,4 +1,4 @@
-var player1 = {name:"Kenny",score:1500,date:"9/27/2018"};
+var player1 = {name:"Kenny",score:950,date:"9/27/2018"};
 var player2 = {name:"Ninja",score:700,date:"8/23/2017"};
 var player3 = {name:"Myth",score:500,date:"7/12/2012"};
 var player4 = {name:"F0X",score:100,date:"6/21/2012"};
@@ -21,4 +21,26 @@ function compare(a, b) {
     }
 }
 
-scores.innerHTML = playerList[9].score;
+leaders.innerHTML += '1) ' + '<br /><br />' + '2) ' + '<br /><br />' + 
+				  '3) ' + '<br /><br />' + '4) ' + '<br /><br />' +
+				  '5) ' + '<br /><br />' + '6) ' + '<br /><br />' +
+				  '7) ' + '<br /><br />' + '8) ' + '<br /><br />' +
+				  '9) ' + '<br /><br />' + '10) ' + '<br /><br />';
+					
+names.innerHTML = playerList[9].name + '<br /><br />' + playerList[8].name + '<br /><br />' + 
+				  playerList[7].name + '<br /><br />' + playerList[6].name + '<br /><br />' +
+				  playerList[5].name + '<br /><br />' + playerList[4].name + '<br /><br />' +
+				  playerList[3].name + '<br /><br />' + playerList[2].name + '<br /><br />' +
+				  playerList[1].name + '<br /><br />' + playerList[0].name + '<br /><br />';
+				  
+score.innerHTML = playerList[9].score + '<br /><br />' + playerList[8].score + '<br /><br />' + 
+				  playerList[7].score + '<br /><br />' + playerList[6].score + '<br /><br />' +
+				  playerList[5].score + '<br /><br />' + playerList[4].score + '<br /><br />' +
+				  playerList[3].score + '<br /><br />' + playerList[2].score + '<br /><br />' +
+				  playerList[1].score + '<br /><br />' + playerList[0].score + '<br /><br />';
+				  
+date.innerHTML = playerList[9].date + '<br /><br />' + playerList[8].date + '<br /><br />' + 
+				  playerList[7].date + '<br /><br />' + playerList[6].date + '<br /><br />' +
+				  playerList[5].date + '<br /><br />' + playerList[4].date + '<br /><br />' +
+				  playerList[3].date + '<br /><br />' + playerList[2].date + '<br /><br />' +
+				  playerList[1].date + '<br /><br />' + playerList[0].date + '<br /><br />';
