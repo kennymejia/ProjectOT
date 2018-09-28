@@ -5,67 +5,67 @@ body {
 	font-family: sans-serif;
 }
 .days{
-	position: fixed;
+	position: absolute;
 	color: white;
-	width: 600px;
-	height: 140px;
-	margin: 530px  -200px;
+	width: 200px;
+	height: 40px;
+	margin: 530px  20px;
 	font-size: 15px;
-	text-align: center;
+	text-align: justify;
 }
 .miles{
-	position: fixed;
+	position: absolute;
 	color: white;
-	width: 600px;
-	height: 140px;
-	margin: 560px  -200px;
+	width: 200px;
+	height: 40px;
+	margin: 560px  20px;
 	font-size: 15px;
-	text-align: center;
+	text-align: justify;
 }
 .health{
-	position: fixed;
+	position: absolute;
 	color: white;
-	width: 600px;
-	height: 140px;
-	margin: 590px  -190px;
+	width: 200px;
+	height: 40px;
+	margin: 590px  20px;
 	font-size: 15px;
-	text-align: center;
+	text-align: justify;
 }
 .weather{
-	position: fixed;
+	position: absolute;
 	color: white;
-	width: 600px;
-	height: 140px;
-	margin: 530px  180px;
+	width: 200px;
+	height: 40px;
+	margin: 530px  350px;
 	font-size: 15px;
-	text-align: center;
+	text-align: justify;
 }
 .pace{
-	position: fixed;
+	position: absolute;
 	color: white;
-	width: 600px;
-	height: 140px;
-	margin: 560px  180px;
+	width: 200px;
+	height: 40px;
+	margin: 560px  350px;
 	font-size: 15px;
-	text-align: center;
+	text-align: justify;
 }
 .terrain{
-	position: fixed;
+	position: absolute;
 	color: white;
-	width: 600px;
-	height: 140px;
-	margin: 590px  180px;
+	width: 200px;
+	height: 40px;
+	margin: 590px  350px;
 	font-size: 15px;
-	text-align: center;
+	text-align: justify;
 }
 .alive{
-	position: fixed;
+	position: absolute;
 	color: white;
-	width: 600px;
-	height: 140px;
-	margin: 530px  500px;
+	width: 200px;
+	height: 40px;
+	margin: 530px  630px;
 	font-size: 15px;
-	text-align: center;
+	text-align: justify;
 }
 .title {
     left: 0px;

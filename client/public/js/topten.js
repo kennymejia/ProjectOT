@@ -44,3 +44,25 @@ date.innerHTML = playerList[9].date + '<br /><br />' + playerList[8].date + '<br
 				  playerList[5].date + '<br /><br />' + playerList[4].date + '<br /><br />' +
 				  playerList[3].date + '<br /><br />' + playerList[2].date + '<br /><br />' +
 				  playerList[1].date + '<br /><br />' + playerList[0].date + '<br /><br />';
+				  
+(function() {
+
+    var quotes = $(".quotes");
+    var quoteIndex = -1;
+    
+    function showNextQuote() {
+        ++quoteIndex;
+        quotes.eq(quoteIndex % quotes.length)
+            .fadeIn(2000)
+            .delay(2000)
+            .fadeOut(2000, showNextQuote);
+    }
+    
+    showNextQuote();
+    
+})();
+document.body.addEventListener("keydown", function (event) {
+     if (event.keyCode === 32) {
+        window.location.replace("http://localhost:1337/mainmenu.html");
+    }
+});

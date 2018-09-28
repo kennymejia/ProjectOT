@@ -1,5 +1,21 @@
+(function() {
+
+    var quotes = $(".quotes");
+    var quoteIndex = -1;
+    
+    function showNextQuote() {
+        ++quoteIndex;
+        quotes.eq(quoteIndex % quotes.length)
+            .fadeIn(2000)
+            .delay(2000)
+            .fadeOut(2000, showNextQuote);
+    }
+    
+    showNextQuote();
+    
+})();
 var isPlaying = false;//VARIABLE THAT SHOWS FUTURE STATUS OF PLAYER
-sound.innerHTML = "4. Turn Sound OFF";//VARIABLE THAT SHOWS TEXT FOR FUTURE STATUS OF PLAYER
+sound.innerHTML = "4. Sound Is Currently ON";//VARIABLE THAT SHOWS TEXT FOR FUTURE STATUS OF PLAYER
 //FUNCTION THAT LISTENS FOR SPECIFIC KEYCODES 1 + 2 + 3 + 4 AND SPACE
 //FUNCTION ALSO PLAYS AND PAUSES AUDIO AS WELL AS UPDATES TEXT FOR CHOICE 4 
 document.body.addEventListener("keydown", function (event) {
@@ -16,11 +32,11 @@ document.body.addEventListener("keydown", function (event) {
 		isPlaying = !isPlaying; 
 		if(isPlaying){
 			theme.pause();
-			sound.innerHTML = "4. Turn Sound ON";
+			sound.innerHTML = "4. Sound Is Currently OFF";
 		}		
 		else{
 			theme.play();
-			sound.innerHTML = "4. Turn Sound OFF";
+			sound.innerHTML = "4. Sound Is Currently ON";
 		}
     }
     else if (event.keyCode === 32) {
