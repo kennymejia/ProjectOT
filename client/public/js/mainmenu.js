@@ -1,3 +1,4 @@
+//FUNCTION FOR THE FADE ON TEXT REFERENCING QUOTES
 (function() {
 
     var quotes = $(".quotes");
@@ -14,6 +15,7 @@
     showNextQuote();
     
 })();
+
 var isPlaying = false;//VARIABLE THAT SHOWS FUTURE STATUS OF PLAYER
 sound.innerHTML = "4. Sound Is Currently ON";//VARIABLE THAT SHOWS TEXT FOR FUTURE STATUS OF PLAYER
 //FUNCTION THAT LISTENS FOR SPECIFIC KEYCODES 1 + 2 + 3 + 4 AND SPACE

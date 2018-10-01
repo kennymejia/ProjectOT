@@ -6,55 +6,61 @@ body {
 }
 
 .travel{
-	position: fixed;
+	position: absolute;
 	color: white;
-	width: 600px;
+	width: 400px;
 	height: 140px;
-	margin: 320px  200px;
+	margin: 320px  400px;
 	font-size: 20px;
-	text-align: center;
+	text-align: justify;
 }
 
 .learn{
-	position: fixed;
+	position: absolute;
 	color: white;
-	width: 600px;
+	width: 400px;
 	height: 140px;
-	margin: 370px  200px;
+	margin: 370px  400px;
 	font-size: 20px;
-	text-align: center;	
+	text-align: justify;	
 }
 
 .topten{
-	position: fixed;
+	position: absolute;
 	color: white;
-	width: 600px;
+	width: 400px;
 	height: 140px;
-	margin: 420px  200px;
+	margin: 420px  400px;
 	font-size: 20px;
-	text-align: center;
+	text-align: justify;
 }
 #sound{
-	position: fixed;
+	position: absolute;
+	color: white;
+	width: 400px;
+	height: 140px;
+	margin: 470px  400px;
+	font-size: 20px;
+	text-align: justify;
+}
+.mainmenu{
+	position: absolute;
 	color: white;
 	width: 600px;
 	height: 140px;
-	margin: 470px  200px;
+	margin: 210px  200px;
+	font-size: 40px;
+	text-align: center;
+}
+.choice{
+	position: absolute;
+	color: white;
+	width: 600px;
+	height: 140px;
+	margin: 265px  200px;
 	font-size: 20px;
 	text-align: center;
 }
-.mainmenu{
-	position: fixed;
-	color: white;
-	width: 600px;
-	height: 140px;
-	margin: 220px  200px;
-	font-size: 30px;
-	text-align: center;
-}
-/*
- * TEXT FOR CONTINUE MESSAGE USES CSS TO FADE IN AND OUT
- */
 .quotes {
     -webkit-animation: fadeinout 2s infinite;
     animation: fadeinout 4s infinite;
