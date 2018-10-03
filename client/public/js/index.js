@@ -1,4 +1,4 @@
-//FUNCTION FOR THE FADE ON  TEXT REFERENCING QUOTES
+//FUNCTION FOR THE FADE ON TEXT REFERENCING QUOTES
 (function() {
 
     var quotes = $(".quotes");
@@ -11,11 +11,16 @@
             .delay(2000)
             .fadeOut(2000, showNextQuote);
     }
-    showNextQuote();   
+    
+    showNextQuote(); 
+
 })();
+
 //'LISTENS' FOR THE SPACEBAR AND WHEN PRESSED RETURNS US TO MAIN MENU
 document.body.addEventListener("keydown", function (event) {
+    
     if (event.keyCode === 32) {
         window.location.replace("http://localhost:1337/mainmenu.html");
     }
+
 });

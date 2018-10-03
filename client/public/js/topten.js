@@ -9,10 +9,13 @@ var player7 = {name:"d3m0",score:800,date:"4/23/1988"};
 var player8 = {name:"ch13f",score:200,date:"12/12/1998"};
 var player9 = {name:"m3m3r",score:600,date:"11/21/1995"};
 var player10 = {name:"c00ln1ght",score:900,date:"4/11/1972"};
+
 //INITIALIZING OUR ARRAY OF PLAYERS 
 var playerList = [player1,player2,player3,player4,player5,player6,player7,player8,player9,player10];
+
 //CALLING OUR SORT FUNCTION
 playerList.sort(compare);
+
 //OUR ACTUAL SORT FUNCTION
 function compare(a, b) {
     if (a.score === b.score) {
@@ -22,30 +25,35 @@ function compare(a, b) {
         return (a.score < b.score) ? -1 : 1;
     }
 }
+
 //COLUMN THAT LAYS OUT THE NUMBERS FOR THE PLAYERS ON LEADERBOARD
 leaders.innerHTML += '1) ' + '<br /><br />' + '2) ' + '<br /><br />' + 
 				  '3) ' + '<br /><br />' + '4) ' + '<br /><br />' +
 				  '5) ' + '<br /><br />' + '6) ' + '<br /><br />' +
 				  '7) ' + '<br /><br />' + '8) ' + '<br /><br />' +
 				  '9) ' + '<br /><br />' + '10) ' + '<br /><br />';
-//COLUMN THAT LISTS THE PLAYERS NAME			
+
+                  //COLUMN THAT LISTS THE PLAYERS NAME			
 names.innerHTML = playerList[9].name + '<br /><br />' + playerList[8].name + '<br /><br />' + 
 				  playerList[7].name + '<br /><br />' + playerList[6].name + '<br /><br />' +
 				  playerList[5].name + '<br /><br />' + playerList[4].name + '<br /><br />' +
 				  playerList[3].name + '<br /><br />' + playerList[2].name + '<br /><br />' +
 				  playerList[1].name + '<br /><br />' + playerList[0].name + '<br /><br />';
-//COLUMN THAT LISTS THE PLAYERS SCORE
+
+                  //COLUMN THAT LISTS THE PLAYERS SCORE
 score.innerHTML = playerList[9].score + '<br /><br />' + playerList[8].score + '<br /><br />' + 
 				  playerList[7].score + '<br /><br />' + playerList[6].score + '<br /><br />' +
 				  playerList[5].score + '<br /><br />' + playerList[4].score + '<br /><br />' +
 				  playerList[3].score + '<br /><br />' + playerList[2].score + '<br /><br />' +
 				  playerList[1].score + '<br /><br />' + playerList[0].score + '<br /><br />';
+
 //COLUMN THAT LISTS THE PLAYERS SCORE DATE
 date.innerHTML = playerList[9].date + '<br /><br />' + playerList[8].date + '<br /><br />' + 
 				  playerList[7].date + '<br /><br />' + playerList[6].date + '<br /><br />' +
 				  playerList[5].date + '<br /><br />' + playerList[4].date + '<br /><br />' +
 				  playerList[3].date + '<br /><br />' + playerList[2].date + '<br /><br />' +
 				  playerList[1].date + '<br /><br />' + playerList[0].date + '<br /><br />';
+
 //FUNCTION FOR THE FADE ON TEXT REFERENCING QUOTES			  
 (function() {
 
@@ -63,9 +71,12 @@ date.innerHTML = playerList[9].date + '<br /><br />' + playerList[8].date + '<br
     showNextQuote();
     
 })();
+
 //'LISTENS' FOR THE SPACEBAR
 document.body.addEventListener("keydown", function (event) {
-     if (event.keyCode === 32) {
+   
+    if (event.keyCode === 32) {
         window.location.replace("http://localhost:1337/mainmenu.html");
     }
+    
 });

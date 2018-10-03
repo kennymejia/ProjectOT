@@ -16,31 +16,47 @@
     
 })();
 
-var isPlaying = false;//VARIABLE THAT SHOWS FUTURE STATUS OF PLAYER
-sound.innerHTML = "4. Sound Is Currently ON";//VARIABLE THAT SHOWS TEXT FOR FUTURE STATUS OF PLAYER
+//VARIABLE THAT SHOWS FUTURE STATUS OF PLAYER
+var isThemePlaying = false;
+
+//VARIABLE THAT SHOWS TEXT FOR CURRENT PLAYER STATUS ON/OFF
+sound.innerHTML = "4. Sound Is Currently ON";
+
 //FUNCTION THAT LISTENS FOR SPECIFIC KEYCODES 1 + 2 + 3 + 4 AND SPACE
 //FUNCTION ALSO PLAYS AND PAUSES AUDIO AS WELL AS UPDATES TEXT FOR CHOICE 4 
 document.body.addEventListener("keydown", function (event) {
+    
+    //KEYCODE FOR THE NUMBER ONE
     if (event.keyCode === 49) {
         window.location.replace("http://localhost:1337/trail.html");
     }
-    else if (event.keyCode === 50) {
-        window.location.replace(" WHAT GOES HERE ? ");
-    }
+    
+    //KEYCODE FOR THE NUMBER TWO
+    /*else if (event.keyCode === 50) {
+        window.location.replace("TOO SOON");
+    }*/
+    
+    //KEYCODE FOR THE NUMBER THREE
     else if (event.keyCode === 51) {
         window.location.replace("http://localhost:1337/topten.html");
     }
+    
+    //KEYCODE FOR THE NUMBER FOUR
     else if (event.keyCode === 52) {
-		isPlaying = !isPlaying; 
-		if(isPlaying){
+		isThemePlaying = !isThemePlaying; 
+        
+        if(isThemePlaying){
 			theme.pause();
 			sound.innerHTML = "4. Sound Is Currently OFF";
 		}		
-		else{
+        
+        else{
 			theme.play();
 			sound.innerHTML = "4. Sound Is Currently ON";
 		}
     }
+    
+    //KEYCODE FOR THE SPACEBAR
     else if (event.keyCode === 32) {
         window.location.replace("http://localhost:1337/");
     }
