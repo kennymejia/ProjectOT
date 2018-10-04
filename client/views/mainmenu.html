@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html>
-	<title>Main Menu</title>
+	
+<title>Oregon Trail Main Menu</title>
+	
 	<head>
 	    <title>MainMenu</title>
 	    <link rel='stylesheet' type='text/css' href='/css/mainmenu.css'/>
 	    <link rel='stylesheet' type='text/css' href='/css/global.css'/>
 	</head>
+	
 	<body>
+		<audio preload loop id="theme">
+			<source src="/music/theme.mp3" type="audio/mpeg">
+			Your browser does not support the audio element.
+		</audio>
+		
 		<div class="travel">
 			1. Travel The Trail
 		</div>
@@ -21,26 +29,26 @@
 		
 		<div id="sound">
 			<div class="sound">
-				(PLACE HOLDER)
+				(PLACE HOLDER SEE JS)
 			</div>
 		</div>
 		
 		<div class="mainmenu">
 			Main Menu
 		</div>
+		
 		<div class="choice">
 			Select An Option
 		</div>	
+		
 		<div class="quotes">
 			<a href="http://localhost:1337/">Press The Spacebar To Exit</a>
 		</div>
+		
 		<div class="quotes">
 			<a href="http://localhost:1337/">Click Here To Exit</a>
-		</div>
-		<audio loop id="theme">
-		  	<source src="/music/theme.mp3" type="audio/mpeg">
-		  	Your browser does not support the audio element.
-		</audio>		
+		</div>		
+		
 		<img src="/images/oregontitle.jpg" alt="Oregon Trail Title">
 		<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js'></script>
 	    <script type='text/javascript' src='/js/mainmenu.js'></script>

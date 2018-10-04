@@ -67,16 +67,25 @@ body {
 	font-size: 15px;
 	text-align: justify;
 }
+.terrainwall {
+    position: absolute;
+    left:0px;
+    top: 110px;
+    z-index: 1px;
+}
+.quotes {
+	display: none;
+    position: absolute;
+    color: white;
+    margin: 580px 540px;
+    text-align: center;
+    width: 400px;
+    height: 400px;
+}
 .title {
-    left: 0px;
+	left: 0px;
     top: 0px;
     z-index: 1px;
     width: 1000px;
     height: 618px;
 } 
-.terrainwall {
-    position: relative;
-    left: 0px;
-    top: -510px;
-    z-index: 2px;
-}
