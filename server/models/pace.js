@@ -1,3 +1,5 @@
+//REMEMBER TO LINK ALL FILES TOGETHER ESPECIALLY FOR NPC HEALTH
+
 var currentPace = 'steady';
 var totalMiles = 0;
 
