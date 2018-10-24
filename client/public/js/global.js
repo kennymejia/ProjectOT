@@ -11,6 +11,7 @@ var tillPlayed = sessionStorage.getItem('timePlayed');
 var isPlaying = false;
 
 function update(){
+    
     if(!isPlaying){
         if(tillPlayed){
             theme.currentTime = tillPlayed;

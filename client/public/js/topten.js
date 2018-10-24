@@ -1,4 +1,4 @@
-//INITIALIZING OUR PLAYERS WHICH ARE OBJECTS
+/*//INITIALIZING OUR PLAYERS WHICH ARE OBJECTS
 var player1 = {name:"Kenny",score:950,date:"9/27/2018"};
 var player2 = {name:"Ninja",score:700,date:"8/23/2017"};
 var player3 = {name:"Myth",score:500,date:"7/12/2012"};
@@ -24,7 +24,7 @@ function compare(a, b) {
     else {
         return (a.score < b.score) ? -1 : 1;
     }
-}
+}*/
 
 //COLUMN THAT LAYS OUT THE NUMBERS FOR THE PLAYERS ON LEADERBOARD
 leaders.innerHTML += '1) ' + '<br /><br />' + '2) ' + '<br /><br />' + 
@@ -48,7 +48,7 @@ score.innerHTML = playerList[9].score + '<br /><br />' + playerList[8].score + '
 				  playerList[1].score + '<br /><br />' + playerList[0].score + '<br /><br />';
 
 //COLUMN THAT LISTS THE PLAYERS SCORE DATE
-date.innerHTML = playerList[9].date + '<br /><br />' + playerList[8].date + '<br /><br />' + 
+date.innerHTML =  playerList[9].date + '<br /><br />' + playerList[8].date + '<br /><br />' + 
 				  playerList[7].date + '<br /><br />' + playerList[6].date + '<br /><br />' +
 				  playerList[5].date + '<br /><br />' + playerList[4].date + '<br /><br />' +
 				  playerList[3].date + '<br /><br />' + playerList[2].date + '<br /><br />' +

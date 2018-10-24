@@ -1,6 +1,8 @@
-const express = require('express')
-const app = express()
-const port = 1337
+const express = require('express');
+const app = express();
+const port = 1337;
+var bodyParser = require('body-parser');
+app.use(bodyParser.json({type:'application/json'}));
 
 app.use(express.static('client/public'))
 
@@ -19,6 +21,14 @@ app.get('/trail.html', function (req, res) {
 app.get('/topten.html', function (req, res) { 
 	res.sendFile('topten.html', {root: './client/views'}) })
 
-app.use(express.static('client/public'));
-
 app.listen(port, () => console.log(`Oregon Trail App Listening On Port ${port}!`))
+
+var topTenController = require('./controllers/topTenController');
+
+app.route('/api/topTen/topTen')
+	.get(topTenController.getCurrentScores)
+	.post(topTenController.saveCurrentScore)
+
+	app.route('/api/topTen/topTen/:userID')
+	.get(topTenController.getCurrentScore)
+	.delete(topTenController.deleteCurrentScore)
