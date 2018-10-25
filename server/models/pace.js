@@ -1,9 +1,9 @@
-var paceSteady = 20;
-var paceStrenuous = 30;
-var paceGrueling = 35;
-var paceResting = 0;
+var paceSteady = {miles: 20, healthChange: 0};
+var paceStrenuous = {miles: 25, healthChange: -3};
+var paceGrueling = {miles: 35, healthChange: -8};
+var paceResting = {miles: 0, healthChange: 5};
 
-exports.getCurrentPace = function(choice) {
+exports.getCurrentPace = function() {
     if(choice == 49) {
         return paceSteady;
     }
@@ -13,8 +13,7 @@ exports.getCurrentPace = function(choice) {
     else if(choice == 51) {
         return paceGrueling;
     }
-    else(choice == 52) {
+    else {
         return paceResting;
     }
 }
-

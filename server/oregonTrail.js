@@ -29,6 +29,10 @@ app.route('/api/topTen/topTen')
 	.get(topTenController.getCurrentScores)
 	.post(topTenController.saveCurrentScore)
 
-	app.route('/api/topTen/topTen/:userID')
+app.route('/api/topTen/topTen/:userID')
 	.get(topTenController.getCurrentScore)
 	.delete(topTenController.deleteCurrentScore)
+
+var gameController = require('./controllers/gameController');
+
+app.route('/api/game/game')
