@@ -30,8 +30,6 @@ var weather = [
 exports.getWeather = function() {
     while (currentPace != resting ) {
         
-        var randomWeather = {};
-        
         //getting a randon number between 0 and 99
         var randomProb = Math.floor(Math.random() * 100);
         
@@ -42,10 +40,9 @@ exports.getWeather = function() {
             //THEN RANDOMWEATHER IS EQUAL TO WEATHER ARRAY AT POSITION X
             if (randomProb > weather[x].probabilityMin && randomProb < weather[x].probabilityMax) {
                 
-                randomWeather = weather[x];
+               return weather[x];
+               
             }
         }
     }
-    //WE RETURN RANDOM WEATHER
-    return randomWeather;
 }

@@ -13,11 +13,6 @@ exports.getCurrentScores = function(req,res) {
     res.send(exports.playerList);
 }
 
-exports.getCurrentScore = function(req, res) {
-    res.setHeader('Content-Type', 'application/json');
-    res.send(exports.playerList[req.params.userID]);
-}
-
 exports.saveCurrentScore = function(req, res) {
     var newPlayer = new player (req.body.name, req.body,score, req.body.date);
     exports.playerList.push(newPlayer);
@@ -25,15 +20,8 @@ exports.saveCurrentScore = function(req, res) {
     res.send(req.body);
 }
 
-exports.deleteCurrentScore = function(req, res) {
-	playerList.splice(req.params.userID);
-	res.setHeader('Content-Type', 'application/json');
-	res.send(playerList);
-}
-
-exports.sortCurrentScores = function (req, res) {
-    res.setHeader('Content-Type', 'application/json');
-    playerList.sort(compare);
+exports.saveTopTen = function (req, res) {
+    res.setHeader('content-type', 'application/json');
     function compare(a, b) {
         if (a.score === b.score) {
             return 0;
@@ -42,5 +30,6 @@ exports.sortCurrentScores = function (req, res) {
             return (a.score < b.score) ? -1 : 1;
         }
     }
+    exports.playerList.sort(compare);
     res.send(exports.playerList);
 }

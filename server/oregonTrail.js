@@ -24,15 +24,26 @@ app.get('/topten.html', function (req, res) {
 app.listen(port, () => console.log(`Oregon Trail App Listening On Port ${port}!`))
 
 var topTenController = require('./controllers/topTenController');
-
 app.route('/api/topTen/topTen')
 	.get(topTenController.getCurrentScores)
 	.post(topTenController.saveCurrentScore)
-
-app.route('/api/topTen/topTen/:userID')
-	.get(topTenController.getCurrentScore)
-	.delete(topTenController.deleteCurrentScore)
+	.post(topTenController.saveTopTen)
 
 var gameController = require('./controllers/gameController');
+app.route('/api/game/pace')
+	.post(gameController.changePace)
+app.route('/api/game/update')
+	.get(gameController.updateGame)
+app.route('/api/game/reset')
+	.post(gameController.resetGame)
+app.route('/api/game/get')
+	.get(gameController.getGameData)
 
-app.route('/api/game/game')
+
+var setupController = require('./controllers/setupController');
+app.route('/api/setup/player')
+	.post(setupController.assignPlayerName)
+app.route('/api/setup/profession')
+	.get(setupController.assignProfession)
+app.route('/api/setup/month')
+	.get(setupController.startMonth)

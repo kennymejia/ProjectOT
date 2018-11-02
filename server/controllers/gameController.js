@@ -1,17 +1,28 @@
-var pace = require('../models/pace');
-var weather = require('../models/weather');
-var terrain = require('../models/terrain');
+var gameData = require('../models/gameData');
 
-var currentPace;
-var currentWeather;
-var currentTerrain;
-var currentHealth;
-var totalMiles;
-var choice;
+exports.changePace = function (req, res) {
+    res.setHeader('Content-Type', 'application/json');
+    //SET CURRENTPACE EQUAL TO THE CHOICE OF THE USER
+    var currentPace = gameData.getPace(req.body.userID);
+    //ONE WE GET CURRENTPACE OBJECT WE SEND IT
+    res.send(currentPace);
+}
 
-exports.choice;
-exports.totalMiles;
-exports.currentHealth;
-exports.currentWeather;
-exports.currentPace;
-exports.currentTerrain;
+exports.updateGame = function (req, res) {
+    res.setHeader('Content-Type', 'application/json');
+    //CALLING OUR NEXT DAY FUNCTION WHEN REQUESTED
+    res.send(gameData.nextDay);
+}
+
+exports.resetGame = function (req, res) {
+    res.setHeader('Content-Type', 'application/json');
+    //TO RESET THE GAME WE MERELY SET GAMESETTINGS AGAIN
+    var gameSettings = gameData.createGameSettings;
+    res.send(gameSettings);
+}
+
+exports.getGameData = function (req, res) {
+    res.setHeader('Content-Type', 'application/json');
+    res.send(gameData);
+}
+
