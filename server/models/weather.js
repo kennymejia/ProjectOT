@@ -27,22 +27,6 @@ var weather = [
 ];
 
 //OUR GET WEATHER FUNCTION
-exports.getWeather = function() {
-    while (currentPace != resting ) {
-        
-        //getting a randon number between 0 and 99
-        var randomProb = Math.floor(Math.random() * 100);
-        
-        //FOR LOOP TO ITERATE TROUGH THE WEATHER ARRAY
-        for (var x = 0; x < 12; ++x) {
-           
-            //IF THE RANDOM NUMBER IS BETWEEN THE PROBABILITIES OF A CERTAIN WEATHER
-            //THEN RANDOMWEATHER IS EQUAL TO WEATHER ARRAY AT POSITION X
-            if (randomProb > weather[x].probabilityMin && randomProb < weather[x].probabilityMax) {
-                
-               return weather[x];
-               
-            }
-        }
-    }
+exports.getWeatherArray = function() {
+    return weather;
 }

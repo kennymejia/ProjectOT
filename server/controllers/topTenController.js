@@ -10,18 +10,7 @@ exports.playerList.push(player2);
 
 exports.getCurrentScores = function(req,res) {
     res.setHeader('Content-Type', 'application/json');
-    res.send(exports.playerList);
-}
-
-exports.saveCurrentScore = function(req, res) {
-    var newPlayer = new player (req.body.name, req.body,score, req.body.date);
-    exports.playerList.push(newPlayer);
-    res.setHeader('Content-Type', 'application/json');
-    res.send(req.body);
-}
-
-exports.saveTopTen = function (req, res) {
-    res.setHeader('content-type', 'application/json');
+    exports.playerList.sort(compare);
     function compare(a, b) {
         if (a.score === b.score) {
             return 0;
@@ -30,6 +19,12 @@ exports.saveTopTen = function (req, res) {
             return (a.score < b.score) ? -1 : 1;
         }
     }
-    exports.playerList.sort(compare);
     res.send(exports.playerList);
+}
+
+exports.saveCurrentScore = function(req, res) {
+    var newPlayer = new player.addTopTen (req.body.name, req.body.score, req.body.date);
+    exports.playerList.push(newPlayer);
+    res.setHeader('Content-Type', 'application/json');
+    res.send(req.body);
 }

@@ -8,14 +8,6 @@ var terrainOptions = [
 ];
 
 //OUR GET TERRAIN FUNCTION
-exports.getTerrain = function() {
-    
-    //WHILE THE WAGON CONTINUES TO MOVE
-    while (currentPace != resting ) {
-       
-        //WE SET RANDOM TERRAIN TO A RANDOM TERRAIN FROM THE ARRAY
-        var randomTerrain = 
-        terrainOptions[Math.floor(Math.random() * terrainOptions.length)];
-    }
-    return randomTerrain;
+exports.getTerrainArray = function() {
+    return terrainOptions;
 }
