@@ -2,7 +2,8 @@ var game = require('../controllers/gameController')
 
 exports.assignPlayerName = function (req, res) {
     res.setHeader('Content-Type', 'text/plain');
-    var player = {name:"", alive: true};
+    var player = {name:"", alive: Boolean};
+    player.alive = true;
     player.name = req.body.name;
     game.getData().players.push(player);
     res.send(game.getGameData);
