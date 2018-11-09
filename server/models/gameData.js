@@ -1,3 +1,5 @@
+//FUNCTIONS USED TO CREATE OUR GAME DATA OBJECT
+
 function gameData (){
     this.players = [];
     this.profession = "";

@@ -6,21 +6,22 @@ var gameData = game.newGameData();
 var weatherArray = weather.getWeatherArray(); 
 var terrainArray = terrain.getTerrainArray();
 var paceArray = pace.getPaceArray();
-gameData.currentPace = paceArray[1];
+gameData.currentPace = paceArray[0];
 var messages = [
     {message: "A Member Of Your Team Has Died"},
     {message: "You Are Out Of Time...GAME OVER "},
     {message: "Your Entire Party Is Dead...GAME OVER"},
     {message: "You Have Reached The End Of Your Journey"},
-    {message: "Your Health Has Reached 0...GAME OVER"}
+    {message: "Your Health Has Reached 0...GAME OVER"},
+    {message: "For Your Convenience The Game Was Automatically Reset"}
 ];
-
+//FUNCTION TO UPDATE THE PACE USING USER CHOICE
 exports.changePace = function (req, res) {
     res.setHeader('Content-Type', 'application/json');
     gameData.currentPace = paceArray[req.body.choice];
     res.send(gameData);
 }
-
+//FUNCTION TO SIMULATE ONE DAY
 exports.updateGame = function (req, res) {
     res.setHeader('Content-Type', 'application/json');
     gameData.daysOnTrail++;
@@ -31,40 +32,34 @@ exports.updateGame = function (req, res) {
     gameData.currentHealth = gameData.currentHealth + gameData.currentPace.healthChange;
     deathUpdate();
     gameOver();
-
-    console.log(gameData);
-    
     res.send(gameData);
 }
-
+//FUNCTION TO HARD RESET THE GAME
 exports.resetGame = function (req, res) {
     res.setHeader('Content-Type', 'application/json');
     //TO RESET THE GAME WE MERELY SET GAMESETTINGS AGAIN
     var gameData = game.newGameData();
     res.send(gameData);
 }
-
+//FUNCTION USED TO SEND OUR GAME DATA
 exports.getGameData = function (req, res) {
     res.setHeader('Content-Type', 'application/json');
     res.send(gameData);
 
 }
-
+//FUNCTION USED TO RETURN OUR GAME DATA
 exports.getData = function () {
     return gameData;
 }
-
+//FUNCTION USED TO GET OUR RANDOM WEATHER
+//WE CHECK TO SEE IF OUR CURRENT PACE IS RESTING AND IF IT IS WE RETURN THE SAME WEATHER
+//OTHERWISE WE GET A RANDOM NUMBER BETWEEN 0 AND 99 AND SEE WHICH WEATHER IT FALLS UNDER
 function getRandomWeather () {
     if (gameData.currentPace.pace != "resting" ) {
-        //getting a randon number between 0 and 99
         var randomProb = Math.floor(Math.random() * 100);
-        //FOR LOOP TO ITERATE TROUGH THE WEATHER ARRAY
         for (var x = 0; x < 12; ++x) {
-           
-            //IF THE RANDOM NUMBER IS BETWEEN THE PROBABILITIES OF A CERTAIN WEATHER
-            //THEN RANDOMWEATHER IS EQUAL TO WEATHER ARRAY AT POSITION X
             if (randomProb <= weatherArray[x].probabilityMax && randomProb >= weatherArray[x].probabilityMin) {
-               return weatherArray[x];
+                return weatherArray[x];
             }
         }
     }
@@ -72,7 +67,7 @@ function getRandomWeather () {
         return gameData.currentWeather;
     }
 }
-
+//FUNCTION USED TO GET OUR RANDOM TERRAIN
 function getRandomTerrain () {
     if (gameData.currentPace.pace != "resting" ) {
            
@@ -84,39 +79,61 @@ function getRandomTerrain () {
         return gameData.currentTerrain;
     }  
 }
-
+/*FUNCTION USED TO CHECK OUR HEALTH
+WE HAVE A VARIABLE CALLED PLACE USED TO SEND THE POSITION OF THE PLAYER THAT DIED 
+IF OUR HEALTH IS BELOW 50 WE ITERATE THROUGH OUR ARRAY, UPDATE PLACE, AND GET A RANDOM NUMBER
+A PLAYER HAS A 3%/10% CHANCE OF DYING SO WE SET CHANCE TO A RANDOM NUMBER 3/10 TIMES
+IF CHANCE AND RANDOM NUMBER ARE EQUAL WHEN COMPARED THEN WE CALL OUR FUNCTION PLAYER DEATH 
+AND SEND THE POSITION OF THE PLAYER THAT HAS DIED*/
 function deathUpdate () {
+    var place = -1;
+    
     if (gameData.currentHealth >= 20 && gameData.currentHealth < 50) {
         for (var i = 0; i < 5; ++i) {
+            
+            place++;
             var randomNumber =  Math.floor(Math.random() * 100);
-            for (var x = 0; x < 3; ++i) {
+            
+            for (var x = 0; x < 3; ++x) {
+                
                 var chance = Math.floor(Math.random() * 100);
+                
                 if (chance == randomNumber) {
-                    playerDeath(i);
+                    playerDeath(place);
                 }
             }
         }  
     }
-    else {
+    else if (gameData.currentHealth < 20) {
         for (var i = 0; i < 5; ++i) {
+            
+            place++;
             var randomNumber =  Math.floor(Math.random() * 100);
-            for (var x = 0; x < 3; ++i) {
+            
+            for (var x = 0; x < 10; ++x) {
+                
                 var chance = Math.floor(Math.random() * 100);
+                
                 if (chance == randomNumber) {
-                    playerDeath(i);
+                    playerDeath(place);
                 }
             }
         }
     }
 }
-
-function playerDeath(i) {
-    if (exports.getData().players[i].alive === true) {
-        exports.getData().players[i].alive = false;
+//FUNCTION USED TO SET ALIVE FROM TRUE TO FALSE
+function playerDeath(place) {
+    if (exports.getData().players[place].alive === true) {
+        exports.getData().players[place].alive = false;
         console.log(messages[0].message);//Console log for now
     }
 }
-
+//FUNCTION USED TO CHECK IF THE GAME HAS ENDED
+//WE CHECK TO SEE IF ALL PLAYERS ARE NO LONGER ALIVE
+//WE CHECK TO SEE IF WE HAVE REACHED OUR DESTINATION
+//WE CHECK TO SEE IF WE HAVE MET OUR DAY LIMIT
+//WE CHECK TO SEE IF OUR CURRENT HEALTH IS 0 OR BELOW
+//IF ANY OF THESE CONDITIONS ARE MET WE CALL SOFT RESET
 function gameOver () {
     if (exports.getData().players[0].alive === false && 
         exports.getData().players[1].alive === false &&
@@ -124,18 +141,32 @@ function gameOver () {
         exports.getData().players[3].alive === false &&
         exports.getData().players[4].alive === false) {
         console.log(messages[2].message);//Console log for now
-        var gameData = game.newGameData();
+        softReset();
     }
     else if (exports.getData().totalMiles == 500) {
-        console.log(messages[4].message);
-        var gameData = game.newGameData();
+        console.log(messages[3].message);
+        softReset();
     }
     else if (exports.getData().daysOnTrail == 46) {
         console.log(messages[1].message);//FOR NOW WE PRINT TO CONSOLE
-        var gameData = game.newGameData();
+        softReset();
     }
     else if (exports.getData().currentHealth <= 0) {
-        console.log(messages[5].message);
-        var gameData = game.newGameData();
+        console.log(messages[4].message);
+        softReset();
     }
+}
+//FUNCTION USED TO RESET MOST OF OUR SETTINGS
+//WE DONT RESET PLAYERS, JOB, OR MONTH
+function softReset () {
+    exports.getData().players[0].alive = true;
+    exports.getData().players[1].alive = true;
+    exports.getData().players[2].alive = true;
+    exports.getData().players[3].alive = true;
+    exports.getData().players[4].alive = true;
+    gameData.daysOnTrail = 0;
+    gameData.totalMiles = 0;
+    gameData.currentHealth = 100;
+    gameData.currentPace = paceArray[0] ;
+    console.log(messages[5].message);
 }

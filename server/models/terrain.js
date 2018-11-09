@@ -1,5 +1,5 @@
 //OUR ARRAY THAT HOLDS TERRAIN OBJECTS
-//EACH OBJECT HOLDS THE TYPE OF TERRAIN AS WEEL AS THE URL TO THE PICTURE
+//EACH OBJECT HOLDS THE TYPE OF TERRAIN AS WELL AS THE URL TO THE PICTURE
 var terrainOptions = [
     {type: 'forest', url: ('../../client/public/images/forest.jpg')},
     {type: 'plains', url: ('../../client/public/images/plains.jpg')},
