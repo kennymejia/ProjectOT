@@ -28,7 +28,7 @@ document.body.addEventListener("keydown", function (event) {
     
     //KEYCODE FOR THE NUMBER ONE
     if (event.keyCode === 49) {
-        window.location.replace("http://localhost:1337/trail.html");
+        window.location.replace("http://localhost:1337/setup.html");
     }
     
     //KEYCODE FOR THE NUMBER TWO
