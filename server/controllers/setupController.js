@@ -29,3 +29,33 @@ exports.startMonth = function (req, res) {
     res.setHeader('Content-Type', 'text/plain');
     res.send(game.getGameData);
 }
+
+//************************************************************************************************
+
+exports.getGameScreen = function (req, res) {
+    var gameScreen = exports.gameScreens[req.body.id];
+    res.setHeader('content-type', 'text/plain');
+    res.send(gameScreen);
+}
+
+var screen0 = "<div class = \"choice\">" + "Which Will You Choose?" + "</div>" +
+                 "<div class= \"banker\">" + "1. Be A Banker From Boston" + "</div>" +
+                 "<div class= \"carpenter\">" + "2. Be A Carpenter From Ohio" + "</div>" +
+                 "<div class= \"farmer\">" + "3. Be A Farmer From Illinois" + "</div>" +
+                 "<div class= \"differences\">" + "4. Find Out The Differences Between The Choices" + "</div>";
+
+var screen1;//START MONTH HTML
+
+var screen2;//LEADER NAME HTML
+
+var screen3;//PARTY NAMES HTML
+
+var screen4;//REVIEW OF CHOICES HTML
+
+exports.gameScreens = [];
+
+exports.gameScreens.push(screen0);
+exports.gameScreens.push(screen1);
+exports.gameScreens.push(screen2);
+exports.gameScreens.push(screen3);
+exports.gameScreens.push(screen4);
