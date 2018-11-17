@@ -4,6 +4,24 @@ body {
 	padding: 0;
 	font-family: sans-serif;
 }
+#gameContainer{
+	position: absolute;
+	color: white;
+	width: 600px;
+	height: 140px;
+	margin: -10px  0px;
+	font-size: 20px;
+	text-align: center;
+}
+.review{
+	position: absolute;
+	color: white;
+	width: 600px;
+	height: 140px;
+	margin: 220px  210px;
+	font-size: 25px;
+	text-align: center;
+}
 .choice{
 	position: absolute;
 	color: white;
@@ -45,7 +63,43 @@ body {
 	color: white;
 	width: 600px;
 	height: 140px;
-	margin: 470px  210px;
+	margin: 470px  200px;
+	font-size: 20px;
+	text-align: center;
+}
+.february{
+	position: absolute;
+	color: white;
+	width: 600px;
+	height: 140px;
+	margin: 320px  200px;
+	font-size: 20px;
+	text-align: center;
+}
+.april{
+	position: absolute;
+	color: white;
+	width: 600px;
+	height: 140px;
+	margin: 370px  200px;
+	font-size: 20px;
+	text-align: center;
+}
+.june{
+	position: absolute;
+	color: white;
+	width: 600px;
+	height: 140px;
+	margin: 420px  200px;
+	font-size: 20px;
+	text-align: center;
+}
+.august{
+	position: absolute;
+	color: white;
+	width: 600px;
+	height: 140px;
+	margin: 470px  200px;
 	font-size: 20px;
 	text-align: center;
 }
