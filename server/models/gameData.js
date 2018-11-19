@@ -11,6 +11,7 @@ function gameData (){
     this.currentWeather = {id: 0, healthChange: 0, mileChange: 0, probabilityMin: 0, probabilityMax: 0};
     this.currentTerrain = {type: '', url: ('')};
     this.currentPace = {choice: 0, pace: "", miles: 0, healthChange: 0};
+    this.message = "";
 }
 
 exports.newGameData = function() {

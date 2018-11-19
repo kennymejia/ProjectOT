@@ -1,10 +1,10 @@
 //OUR ARRAY THAT HOLDS TERRAIN OBJECTS
 //EACH OBJECT HOLDS THE TYPE OF TERRAIN AS WELL AS THE URL TO THE PICTURE
 var terrainOptions = [
-    {type: 'forest', url: ('../../client/public/images/forest.jpg')},
-    {type: 'plains', url: ('../../client/public/images/plains.jpg')},
-    {type: 'mountains', url: ('../../client/public/images/mountains.jpg')},
-    {type: 'desert', url: ('../../client/public/images/desert.jpg')}
+    {type: 'forest', url: ('<img src="/images/forest.jpg">')},
+    {type: 'plains', url: ('<img src="/images/plains.jpg">')},
+    {type: 'mountains', url: ('<img src="/images/mountain.jpg">')},
+    {type: 'desert', url: ('<img src="/images/desert.jpg">')}
 ];
 
 //OUR GET TERRAIN FUNCTION

@@ -9,7 +9,7 @@ body {
 	color: white;
 	width: 200px;
 	height: 40px;
-	margin: 530px  20px;
+	margin: 410px  20px;
 	font-size: 15px;
 	text-align: justify;
 }
@@ -18,7 +18,7 @@ body {
 	color: white;
 	width: 200px;
 	height: 40px;
-	margin: 560px  20px;
+	margin: 440px  20px;
 	font-size: 15px;
 	text-align: justify;
 }
@@ -27,16 +27,16 @@ body {
 	color: white;
 	width: 200px;
 	height: 40px;
-	margin: 590px  20px;
+	margin: 470px  20px;
 	font-size: 15px;
 	text-align: justify;
 }
 .weather{
 	position: absolute;
 	color: white;
-	width: 200px;
+	width: 400px;
 	height: 40px;
-	margin: 530px  350px;
+	margin: 500px  20px;
 	font-size: 15px;
 	text-align: justify;
 }
@@ -45,7 +45,7 @@ body {
 	color: white;
 	width: 200px;
 	height: 40px;
-	margin: 560px  350px;
+	margin: 530px  20px;
 	font-size: 15px;
 	text-align: justify;
 }
@@ -54,7 +54,7 @@ body {
 	color: white;
 	width: 200px;
 	height: 40px;
-	margin: 590px  350px;
+	margin: 560px  20px;
 	font-size: 15px;
 	text-align: justify;
 }
@@ -63,14 +63,68 @@ body {
 	color: white;
 	width: 200px;
 	height: 40px;
-	margin: 530px  630px;
+	margin: 410px  280px;
+	font-size: 15px;
+	text-align: justify;
+}
+.alive1{
+	position: absolute;
+	color: white;
+	width: 200px;
+	height: 40px;
+	margin: 440px  280px;
+	font-size: 15px;
+	text-align: justify;
+}
+.alive2{
+	position: absolute;
+	color: white;
+	width: 200px;
+	height: 40px;
+	margin: 470px  280px;
+	font-size: 15px;
+	text-align: justify;
+}
+.alive3{
+	position: absolute;
+	color: white;
+	width: 200px;
+	height: 40px;
+	margin: 500px  280px;
+	font-size: 15px;
+	text-align: justify;
+}
+.alive4{
+	position: absolute;
+	color: white;
+	width: 200px;
+	height: 40px;
+	margin: 530px  280px;
+	font-size: 15px;
+	text-align: justify;
+}
+.alive5{
+	position: absolute;
+	color: white;
+	width: 200px;
+	height: 40px;
+	margin: 560px  280px;
+	font-size: 15px;
+	text-align: justify;
+}
+.message{
+	position: absolute;
+	color: white;
+	width: 200px;
+	height: 40px;
+	margin: 410px  480px;
 	font-size: 15px;
 	text-align: justify;
 }
 .terrainwall {
     position: absolute;
     left:0px;
-    top: 110px;
+    top: 0px;
     z-index: 1px;
 }
 .quotes {

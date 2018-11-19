@@ -19,11 +19,13 @@ var messages = [
 exports.changePace = function (req, res) {
     res.setHeader('Content-Type', 'application/json');
     gameData.currentPace = paceArray[req.body.choice];
-    res.send(gameData);
+    var pace = gameData.currentPace;
+    res.send(pace);
 }
 //FUNCTION TO SIMULATE ONE DAY
 exports.updateGame = function (req, res) {
     res.setHeader('Content-Type', 'application/json');
+    gameData.message = "";
     gameData.daysOnTrail++;
     gameData.currentTerrain = getRandomTerrain();
     gameData.currentWeather = getRandomWeather();
@@ -125,7 +127,7 @@ function deathUpdate () {
 function playerDeath(place) {
     if (exports.getData().players[place].alive === true) {
         exports.getData().players[place].alive = false;
-        console.log(messages[0].message);//Console log for now
+        gameData.message = messages[0].message;
     }
 }
 //FUNCTION USED TO CHECK IF THE GAME HAS ENDED
@@ -140,19 +142,19 @@ function gameOver () {
         exports.getData().players[2].alive === false &&
         exports.getData().players[3].alive === false &&
         exports.getData().players[4].alive === false) {
-        console.log(messages[2].message);//Console log for now
+        gameData.message = messages[2].message;
         softReset();
     }
     else if (exports.getData().totalMiles == 500) {
-        console.log(messages[3].message);
+        gameData.message = messages[3].message;
         softReset();
     }
     else if (exports.getData().daysOnTrail == 46) {
-        console.log(messages[1].message);//FOR NOW WE PRINT TO CONSOLE
+        gameData.message = messages[1].message;
         softReset();
     }
     else if (exports.getData().currentHealth <= 0) {
-        console.log(messages[4].message);
+        gameData.message = messages[4].message;
         softReset();
     }
 }
@@ -168,5 +170,5 @@ function softReset () {
     gameData.totalMiles = 0;
     gameData.currentHealth = 100;
     gameData.currentPace = paceArray[0] ;
-    console.log(messages[5].message);
+    gameData.message = messages[5].message;
 }
