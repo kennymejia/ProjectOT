@@ -115,10 +115,10 @@ body {
 .message{
 	position: absolute;
 	color: white;
-	width: 200px;
+	width: 600px;
 	height: 40px;
 	margin: 410px  480px;
-	font-size: 15px;
+	font-size: 12px;
 	text-align: justify;
 }
 .terrainwall {

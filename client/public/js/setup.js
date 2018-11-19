@@ -1,24 +1,6 @@
 var choice;
 var currentGameScreen;
 
-//FUNCTION FOR THE FADE ON TEXT REFERENCING QUOTES
-/*(function() {
-
-    var quotes = $(".quotes");
-    var quoteIndex = -1;
-    
-    function showNextQuote() {
-        ++quoteIndex;
-        quotes.eq(quoteIndex % quotes.length)
-            .fadeIn(2000)
-            .delay(2000)
-            .fadeOut(2000, showNextQuote);
-    }
-    
-    showNextQuote();
-
-})();*/
-
 //'LISTENS' FOR THE USER INPUT THROUGHT THE ASYNC CALLS
 document.body.addEventListener("keydown", function (event) {
     if (currentGameScreen === 0) {
@@ -117,7 +99,7 @@ function professionChoice(choice) {
         method:'post', headers: {
         "Content-type": "application/json; charset=UTF-8" },
         body: '{"choice": "' + choice + '"}' 
-    }).then(function(resonse) {
+    }).then(function(response) {
         if(response.status !== 200) {
             console.log('There Was A Problem With The AJAX Call');
             return;
@@ -197,4 +179,20 @@ function insertData(data) {
     document.getElementById('month').innerHTML = "Month Leaving: " + data.startMonth;	
 }
 
-//********************************************************************************************** */
+//FUNCTION FOR THE FADE ON TEXT REFERENCING QUOTES
+(function() {
+
+    var quotes = $(".quotes");
+    var quoteIndex = -1;
+    
+    function showNextQuote() {
+        ++quoteIndex;
+        quotes.eq(quoteIndex % quotes.length)
+            .fadeIn(2000)
+            .delay(2000)
+            .fadeOut(2000, showNextQuote);
+    }
+    
+    showNextQuote();
+
+})();

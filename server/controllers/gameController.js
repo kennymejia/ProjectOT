@@ -6,6 +6,7 @@ var gameData = game.newGameData();
 var weatherArray = weather.getWeatherArray(); 
 var terrainArray = terrain.getTerrainArray();
 var paceArray = pace.getPaceArray();
+var topTenController = require('../controllers/topTenController');
 gameData.currentPace = paceArray[0];
 var messages = [
     {message: "A Member Of Your Team Has Died"},
@@ -13,7 +14,7 @@ var messages = [
     {message: "Your Entire Party Is Dead...GAME OVER"},
     {message: "You Have Reached The End Of Your Journey"},
     {message: "Your Health Has Reached 0...GAME OVER"},
-    {message: "For Your Convenience The Game Was Automatically Reset"}
+    {message: "Game Over For Your Convenience The Game Was Automatically Reset"}
 ];
 //FUNCTION TO UPDATE THE PACE USING USER CHOICE
 exports.changePace = function (req, res) {
@@ -25,7 +26,7 @@ exports.changePace = function (req, res) {
 //FUNCTION TO SIMULATE ONE DAY
 exports.updateGame = function (req, res) {
     res.setHeader('Content-Type', 'application/json');
-    gameData.message = "";
+    gameData.message = " ";
     gameData.daysOnTrail++;
     gameData.currentTerrain = getRandomTerrain();
     gameData.currentWeather = getRandomWeather();
@@ -171,4 +172,11 @@ function softReset () {
     gameData.currentHealth = 100;
     gameData.currentPace = paceArray[0] ;
     gameData.message = messages[5].message;
+}
+
+function savePlayer () {
+    var name = exports.getData().players[0].name;
+    var date = exports.getData().players[0].date;
+    var score = exports.getData().players[0].score;
+    topTenController.saveCurrentScore;
 }

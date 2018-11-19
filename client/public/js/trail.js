@@ -1,23 +1,3 @@
-/*
-//FUNCTION FOR THE FADE ON TEXT REFERENCING QUOTES			  
-(function() {
-
-    var quotes = $(".quotes");
-    var quoteIndex = -1;
-    
-    function showNextQuote() {
-        ++quoteIndex;
-        quotes.eq(quoteIndex % quotes.length)
-            .fadeIn(2000)
-            .delay(2000)
-            .fadeOut(2000, showNextQuote);
-    }
-    
-    showNextQuote();
-    
-})();
-*/
-
 document.body.addEventListener("keydown", function (event) {
     //'LISTENS' FOR THE SHIFT KEY
     if (event.keyCode === 16) {
@@ -76,11 +56,11 @@ function insertData(data) {
     document.getElementById('pace').innerHTML = "5. Current Pace: " + data.currentPace.pace;
     document.getElementById('terrain').innerHTML = "6. Current Terrain: " + data.currentTerrain.type;
     document.getElementById('alive').innerHTML = "7. Party Alive Status";
-    document.getElementById('alive1').innerHTML = "Leader: " + data.players[0].alive;
-    document.getElementById('alive2').innerHTML = "Member 1: " + data.players[1].alive;
-    document.getElementById('alive3').innerHTML = "Member 2: " + data.players[2].alive;
-    document.getElementById('alive4').innerHTML = "Member 3: " + data.players[3].alive;
-    document.getElementById('alive5').innerHTML = "Member 4: " + data.players[4].alive;
+    document.getElementById('alive1').innerHTML = data.players[0].name + ": " + data.players[0].alive;
+    document.getElementById('alive2').innerHTML = data.players[1].name + ": " + data.players[1].alive;
+    document.getElementById('alive3').innerHTML = data.players[2].name + ": " + data.players[2].alive;
+    document.getElementById('alive4').innerHTML = data.players[3].name + ": " + data.players[3].alive;
+    document.getElementById('alive5').innerHTML = data.players[4].name + ": " + data.players[4].alive;
     document.getElementById('terrainwall').innerHTML = data.currentTerrain.url;
     document.getElementById('message').innerHTML = "Message: " + data.message;
 }
@@ -88,3 +68,21 @@ function insertData(data) {
 function insertPace(data) {
     document.getElementById('pace').innerHTML = "5. Current Pace: " + data.pace;
 }
+
+//FUNCTION FOR THE FADE ON TEXT REFERENCING QUOTES			  
+(function() {
+
+    var quotes = $(".quotes");
+    var quoteIndex = -1;
+    
+    function showNextQuote() {
+        ++quoteIndex;
+        quotes.eq(quoteIndex % quotes.length)
+            .fadeIn(2000)
+            .delay(2000)
+            .fadeOut(2000, showNextQuote);
+    }
+    
+    showNextQuote();
+    
+})();

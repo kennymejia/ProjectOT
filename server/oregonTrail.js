@@ -25,7 +25,7 @@ app.listen(port, () => console.log(`Oregon Trail App Listening On Port ${port}!`
 
 var topTenController = require('./controllers/topTenController');
 app.route('/api/topTen/list')
-	.post(topTenController.getCurrentScores)
+	.get(topTenController.getCurrentScores)
 app.route('/api/topTen/newPlayer')	
 	.post(topTenController.saveCurrentScore)
 
