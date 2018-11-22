@@ -6,7 +6,6 @@ var gameData = game.newGameData();
 var weatherArray = weather.getWeatherArray(); 
 var terrainArray = terrain.getTerrainArray();
 var paceArray = pace.getPaceArray();
-var topTenController = require('../controllers/topTenController');
 gameData.currentPace = paceArray[0];
 var messages = [
     {message: "A Member Of Your Team Has Died"},
@@ -146,8 +145,10 @@ function gameOver () {
         gameData.message = messages[2].message;
         softReset();
     }
-    else if (exports.getData().totalMiles == 500) {
+    else if (exports.getData().totalMiles >= 500) {
         gameData.message = messages[3].message;
+        var score = calculateScore(exports.getData().currentHealth, exports.getData().daysOnTrail);
+        sendScore(exports.getData().players[0].name, score);
         softReset();
     }
     else if (exports.getData().daysOnTrail == 46) {
@@ -174,9 +175,31 @@ function softReset () {
     gameData.message = messages[5].message;
 }
 
-function savePlayer () {
-    var name = exports.getData().players[0].name;
-    var date = exports.getData().players[0].date;
-    var score = exports.getData().players[0].score;
-    topTenController.saveCurrentScore;
+function calculateScore (health,days) {
+    days = 45 - days;
+    var score = health * days;
+    return score; 
+}
+
+//********************************************************************************************* */
+
+function sendScore (playerName, score) {
+    var javaDate = new date.now();
+    var myDate = javaDate.getMonth() + "/"+ javaDate.getDate() + "/" + javaDate.getFullYear();
+    var score = {name: playerName, score: score, date: myDate}
+    fetch('/api/topTen/newPlayer', {
+        method:'post', headers: {
+        "Content-type": "application/json; charset=UTF-8"},
+        body: JSON.stringify(score)
+    }).then(function(response) {
+        if(response.status !== 200) {
+            console.log('There Was A Problem With The AJAX Call');
+            return;
+        }
+        response.text().then(function(data) {				
+            console.log("Data Received:" + data);
+            console.log("Top Score Sent")
+            return data;
+        });
+    });
 }

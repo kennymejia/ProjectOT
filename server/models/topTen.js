@@ -1,11 +1,11 @@
 //FUNCTIONS USED TO CREATE A NEW PLAYER
 
-function player (name, score, date) {
+function player (name, score, ttDate) {
     this.name = name;
     this.score = score;
-    this.date = date;
+    this.ttDate = ttDate;
 }
 
-exports.addTopTen = function(name, score, date) {
-    return new player(name, score, date);
+exports.addTopTen = function(name, score, ttDate) {
+    return new player(name, score, ttDate);
 }

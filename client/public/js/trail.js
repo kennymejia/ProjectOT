@@ -1,23 +1,41 @@
+var choice = 0;
+var position = 1000;
+
 document.body.addEventListener("keydown", function (event) {
     //'LISTENS' FOR THE SHIFT KEY
-    if (event.keyCode === 16) {
+    if (event.keyCode === 17) {
         window.location.replace("http://localhost:1337/mainmenu.html");
     }
     //'LISTENS' FOR THE SPACE KEY
-    else if (event.keyCode === 32) {
-        updatePace();
+    else if (event.keyCode === 16) {
+        choice ++;
+        if (choice == 0) {
+            updatePace(choice);
+        }
+        else if (choice == 1) {
+            updatePace(choice);
+        }
+        else if (choice == 2) {
+            updatePace(choice);
+        }
+        else if (choice == 3) {
+            updatePace(choice);
+        }
+        else if (choice == 4) {
+            choice = 0;
+            updatePace(choice);
+        }
     }
     else if (event.keyCode === 13) {
         nextDay();
     }
-
-    
 });
 
 function updatePace(choice) {
     fetch('/api/game/pace', {
-        method:'get', headers: {
-        "Content-type": "application/json; charset=UTF-8" }
+        method:'post', headers: {
+        "Content-type": "application/json; charset=UTF-8" },
+        body: '{"choice": "' + choice + '"}'
     }).then(function(response) {
         if(response.status !== 200) {
             console.log('There Was A Problem With The AJAX Call');
@@ -43,6 +61,9 @@ function nextDay() {
         response.text().then(function(data) {
             console.log("Data Received: " + data);
             var userData = JSON.parse(data);
+            if (userData.daysOnTrail == 0) {
+                position = 1000;
+            }
             insertData(userData);
         });
     });
@@ -63,10 +84,33 @@ function insertData(data) {
     document.getElementById('alive5').innerHTML = data.players[4].name + ": " + data.players[4].alive;
     document.getElementById('terrainwall').innerHTML = data.currentTerrain.url;
     document.getElementById('message').innerHTML = "Message: " + data.message;
+    wagon(data.currentPace);
 }
 
 function insertPace(data) {
     document.getElementById('pace').innerHTML = "5. Current Pace: " + data.pace;
+}
+
+function wagon (data) {
+    if (data.pace == "Steady")
+    {
+        position = position - 40;
+        document.getElementById('wagon').style.left = position + 'px';
+    }
+    else if (data.pace == "Strenuous")
+    {
+        position = position - 50;
+        document.getElementById('wagon').style.left = position + 'px';
+    }
+    else if (data.pace == "Grueling")
+    {
+        position = position - 70;
+        document.getElementById('wagon').style.left = position + 'px';
+    }
+    else if (data.pace == "Resting")
+    {
+        document.getElementById('wagon').style.left = position + 'px';
+    }
 }
 
 //FUNCTION FOR THE FADE ON TEXT REFERENCING QUOTES			  

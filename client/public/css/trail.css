@@ -121,6 +121,12 @@ body {
 	font-size: 12px;
 	text-align: justify;
 }
+#wagon{
+	position: absolute;
+	color: white;
+	left: 1000px;
+	top: 300px;
+}
 .terrainwall {
     position: absolute;
     left:0px;

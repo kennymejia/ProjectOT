@@ -18,36 +18,6 @@ function topTenList() {
     });
 }
 
-function saveScore() {
-    fetch('/api/topTen/newPlayer', {
-        method:'get', headers: {
-        "Content-type": "application/json; charset=UTF-8" }
-    }).then(function(response) {
-        if(response.status !== 200) {
-            console.log('There Was A Problem With The AJAX Call');
-            return;
-        }
-        response.text().then(function(data) {				
-            console.log("Data Received:" + data);
-            var player = JSON.parse(data);
-            playerList.push(player);
-            playerList.sort(compare);
-            function compare(a, b) {
-                if (a.score === b.score) {
-                    return 0;
-                }
-                else {
-                    return (a.score < b.score) ? -1 : 1;
-                }
-            }
-            if (playerList.length > 10) {
-                playerList.pop();
-            }
-            populate(playerList);
-        });
-    });
-}
-
 function populate (playerList) {
     //COLUMN THAT LAYS OUT THE NUMBERS FOR THE PLAYERS ON LEADERBOARD
     leaders.innerHTML += '1) ' + '<br /><br />' + '2) ' + '<br /><br />' + 
@@ -71,11 +41,11 @@ function populate (playerList) {
     playerList[1].score + '<br /><br />' + playerList[0].score + '<br /><br />';
 
     //COLUMN THAT LISTS THE PLAYERS SCORE DATE
-    date.innerHTML =  playerList[9].date + '<br /><br />' + playerList[8].date + '<br /><br />' + 
-    playerList[7].date + '<br /><br />' + playerList[6].date + '<br /><br />' +
-    playerList[5].date + '<br /><br />' + playerList[4].date + '<br /><br />' +
-    playerList[3].date + '<br /><br />' + playerList[2].date + '<br /><br />' +
-    playerList[1].date + '<br /><br />' + playerList[0].date + '<br /><br />';
+    date.innerHTML =  playerList[9].ttDate + '<br /><br />' + playerList[8].ttDate + '<br /><br />' + 
+    playerList[7].ttDate + '<br /><br />' + playerList[6].ttDate + '<br /><br />' +
+    playerList[5].ttDate + '<br /><br />' + playerList[4].ttDate + '<br /><br />' +
+    playerList[3].ttDate + '<br /><br />' + playerList[2].ttDate + '<br /><br />' +
+    playerList[1].ttDate + '<br /><br />' + playerList[0].ttDate + '<br /><br />';
 }
 
 window.addEventListener("load", function(event){

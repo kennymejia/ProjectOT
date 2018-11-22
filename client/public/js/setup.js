@@ -134,7 +134,7 @@ function playerName(name) {
     fetch('/api/setup/player', {
         method:'post', headers: {
         "Content-type": "application/json; charset=UTF-8" },
-        body: '{"name": "' + name + '"}' 
+        body: '{"name": "' + name + '"}'
     }).then(function(response) {
         if(response.status !== 200) {
             console.log('There Was A Problem With The AJAX Call');
