@@ -85,6 +85,22 @@ function insertData(data) {
     document.getElementById('terrainwall').innerHTML = data.currentTerrain.url;
     document.getElementById('message').innerHTML = "Message: " + data.message;
     wagon(data.currentPace);
+    winner(data);
+}
+
+function winner (data) {
+    if (data.message == "You Have Reached The End Of Your Journey")
+    {
+        var score = calculateScore(data.currentHealth,data.daysOnTrail);
+        sendScore(data.players[0].name,score);
+    }
+}
+
+function calculateScore (health,days) {
+    days = 45 - days;
+    var score = health * days;
+    score = 300;
+    return score; 
 }
 
 function insertPace(data) {
@@ -130,3 +146,25 @@ function wagon (data) {
     showNextQuote();
     
 })();
+
+function sendScore (pname, pscore) {
+    var javaDate = new Date.now();
+    var myDate = javaDate.getFullYear() + "-"+ javaDate.getMonth() + "-" + javaDate.getDay();
+    var player = {name:pname,score:pscore,date:myDate};
+    console.log(player);
+    fetch('/api/topTen/newPlayer', {
+        method:'post', headers: {
+        "Content-type": "application/json; charset=UTF-8"},
+        body: JSON.stringify(player)
+    }).then(function(response) {
+        if(response.status !== 200) {
+            console.log('There Was A Problem With The AJAX Call');
+            return;
+        }
+        response.text().then(function(data) {				
+            console.log("Data Received:" + data);
+            console.log("Top Score Sent")
+            return data;
+        });
+    });
+}

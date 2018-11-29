@@ -27,25 +27,25 @@ function populate (playerList) {
     '9) ' + '<br /><br />' + '10) ' + '<br /><br />';
 
     //COLUMN THAT LISTS THE PLAYERS NAME			
-    names.innerHTML = playerList[9].name + '<br /><br />' + playerList[8].name + '<br /><br />' + 
-    playerList[7].name + '<br /><br />' + playerList[6].name + '<br /><br />' +
-    playerList[5].name + '<br /><br />' + playerList[4].name + '<br /><br />' +
-    playerList[3].name + '<br /><br />' + playerList[2].name + '<br /><br />' +
-    playerList[1].name + '<br /><br />' + playerList[0].name + '<br /><br />';
+    names.innerHTML = playerList[0].name + '<br /><br />' + playerList[1].name + '<br /><br />' + 
+    playerList[2].name + '<br /><br />' + playerList[3].name + '<br /><br />' +
+    playerList[4].name + '<br /><br />' + playerList[5].name + '<br /><br />' +
+    playerList[6].name + '<br /><br />' + playerList[7].name + '<br /><br />' +
+    playerList[8].name + '<br /><br />' + playerList[9].name + '<br /><br />';
 
     //COLUMN THAT LISTS THE PLAYERS SCORE
-    score.innerHTML = playerList[9].score + '<br /><br />' + playerList[8].score + '<br /><br />' + 
-    playerList[7].score + '<br /><br />' + playerList[6].score + '<br /><br />' +
-    playerList[5].score + '<br /><br />' + playerList[4].score + '<br /><br />' +
-    playerList[3].score + '<br /><br />' + playerList[2].score + '<br /><br />' +
-    playerList[1].score + '<br /><br />' + playerList[0].score + '<br /><br />';
+    score.innerHTML = playerList[0].score + '<br /><br />' + playerList[1].score + '<br /><br />' + 
+    playerList[2].score + '<br /><br />' + playerList[3].score + '<br /><br />' +
+    playerList[4].score + '<br /><br />' + playerList[5].score + '<br /><br />' +
+    playerList[6].score + '<br /><br />' + playerList[7].score + '<br /><br />' +
+    playerList[8].score + '<br /><br />' + playerList[9].score + '<br /><br />';
 
     //COLUMN THAT LISTS THE PLAYERS SCORE DATE
-    date.innerHTML =  playerList[9].ttDate + '<br /><br />' + playerList[8].ttDate + '<br /><br />' + 
-    playerList[7].ttDate + '<br /><br />' + playerList[6].ttDate + '<br /><br />' +
-    playerList[5].ttDate + '<br /><br />' + playerList[4].ttDate + '<br /><br />' +
-    playerList[3].ttDate + '<br /><br />' + playerList[2].ttDate + '<br /><br />' +
-    playerList[1].ttDate + '<br /><br />' + playerList[0].ttDate + '<br /><br />';
+    date.innerHTML =  playerList[0].ttDate + '<br /><br />' + playerList[1].ttDate + '<br /><br />' + 
+    playerList[2].ttDate + '<br /><br />' + playerList[3].ttDate + '<br /><br />' +
+    playerList[4].ttDate + '<br /><br />' + playerList[5].ttDate + '<br /><br />' +
+    playerList[6].ttDate + '<br /><br />' + playerList[7].ttDate + '<br /><br />' +
+    playerList[8].ttDate + '<br /><br />' + playerList[9].ttDate + '<br /><br />';
 }
 
 window.addEventListener("load", function(event){

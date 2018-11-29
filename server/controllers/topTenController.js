@@ -20,7 +20,7 @@ con.connect(function(err) {
 //FUNTION TO GET OUR LIST OF TOP TEN PLAYERS SORTED
 exports.getCurrentScores = function(req,res) {
     var currentTopScores = [];
-    var sql = "SELECT playerName, playerScore, ttDate FROM otTopTen ORDER BY playerScore ASC LIMIT 10;";
+    var sql = "SELECT playerName, playerScore, ttDate FROM otTopTen ORDER BY playerScore DESC LIMIT 10;";
     con.query(sql, function (err, rows, fields) {
     if (err) throw err;
     for (var i = 0; i < rows.length; i++) {
@@ -38,11 +38,13 @@ exports.getCurrentScores = function(req,res) {
 
 //FUNCTION USED TO PUSH A NEW PLAYER IN THE TOP TEN LIST
 exports.saveCurrentScore = function(req, res) {
-    var newPlayer = player.addTopTen(req.body[0].name, req.body[1].score, req.body[2].date);
+    var newPlayer = player.addTopTen(req.body.name, req.body.score, req.body.date);
+    console.log(newPlayer);
     var name = newPlayer.name;
     var score = newPlayer.score;
-    var date = newPlayer.date;
-    var sql = "INSERT INTO otTopTen (playerName, playerScore, ttDate) VALUES (name, score , date);"
+    var date = newPlayer.ttDate;
+    var sql = "INSERT INTO otTopTen (playerName, playerScore, ttDate) VALUES ('" + newPlayer.name + "', " + newPlayer.score + ", '" + newPlayer.ttDate + "');"
+    console.log(sql);
     con.query(sql, function (err, rows, fields) {
     if (err) throw err;
     console.log("One Row Inserted");

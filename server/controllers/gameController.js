@@ -12,8 +12,7 @@ var messages = [
     {message: "You Are Out Of Time...GAME OVER "},
     {message: "Your Entire Party Is Dead...GAME OVER"},
     {message: "You Have Reached The End Of Your Journey"},
-    {message: "Your Health Has Reached 0...GAME OVER"},
-    {message: "Game Over For Your Convenience The Game Was Automatically Reset"}
+    {message: "Your Health Has Reached 0...GAME OVER"}
 ];
 //FUNCTION TO UPDATE THE PACE USING USER CHOICE
 exports.changePace = function (req, res) {
@@ -25,6 +24,7 @@ exports.changePace = function (req, res) {
 //FUNCTION TO SIMULATE ONE DAY
 exports.updateGame = function (req, res) {
     res.setHeader('Content-Type', 'application/json');
+    gameData.currentHealth = 100;
     gameData.message = " ";
     gameData.daysOnTrail++;
     gameData.currentTerrain = getRandomTerrain();
@@ -147,8 +147,8 @@ function gameOver () {
     }
     else if (exports.getData().totalMiles >= 500) {
         gameData.message = messages[3].message;
-        var score = calculateScore(exports.getData().currentHealth, exports.getData().daysOnTrail);
-        sendScore(exports.getData().players[0].name, score);
+        //var score = calculateScore(exports.getData().currentHealth, exports.getData().daysOnTrail);
+        //sendScore(gameData.players[0].name, score);
         softReset();
     }
     else if (exports.getData().daysOnTrail == 46) {
@@ -172,21 +172,18 @@ function softReset () {
     gameData.totalMiles = 0;
     gameData.currentHealth = 100;
     gameData.currentPace = paceArray[0] ;
-    gameData.message = messages[5].message;
 }
-
+/*
 function calculateScore (health,days) {
     days = 45 - days;
     var score = health * days;
     return score; 
 }
 
-//********************************************************************************************* */
-
 function sendScore (playerName, score) {
-    var javaDate = new date.now();
+    var javaDate = new Date();
     var myDate = javaDate.getMonth() + "/"+ javaDate.getDate() + "/" + javaDate.getFullYear();
-    var score = {name: playerName, score: score, date: myDate}
+    var score = {name: playerName, score: score, date: myDate};
     fetch('/api/topTen/newPlayer', {
         method:'post', headers: {
         "Content-type": "application/json; charset=UTF-8"},
@@ -203,3 +200,4 @@ function sendScore (playerName, score) {
         });
     });
 }
+*/
