@@ -24,7 +24,6 @@ exports.changePace = function (req, res) {
 //FUNCTION TO SIMULATE ONE DAY
 exports.updateGame = function (req, res) {
     res.setHeader('Content-Type', 'application/json');
-    gameData.currentHealth = 100;
     gameData.message = " ";
     gameData.daysOnTrail++;
     gameData.currentTerrain = getRandomTerrain();
@@ -56,14 +55,52 @@ exports.getData = function () {
 //FUNCTION USED TO GET OUR RANDOM WEATHER
 //WE CHECK TO SEE IF OUR CURRENT PACE IS RESTING AND IF IT IS WE RETURN THE SAME WEATHER
 //OTHERWISE WE GET A RANDOM NUMBER BETWEEN 0 AND 99 AND SEE WHICH WEATHER IT FALLS UNDER
+//NEW IMPLEMENTATION 
+//FUNCTION ALSO CHECKS IS WEATHER CONDITION MAKES SENSE FOR THE CURRENT TERRAIN
+//IF IT DOES NOT WE CALL THE FUNCTION AGAIN TO GET A CORRECT WEATHER CONDITION FOR THE LOCATION
 function getRandomWeather () {
-    if (gameData.currentPace.pace != "resting" ) {
-        var randomProb = Math.floor(Math.random() * 100);
-        for (var x = 0; x < 12; ++x) {
-            if (randomProb <= weatherArray[x].probabilityMax && randomProb >= weatherArray[x].probabilityMin) {
-                return weatherArray[x];
+    if (gameData.currentPace.pace != "Resting" ) {
+        do{
+            var randomProb = Math.floor(Math.random() * 100);
+            for (var x = 0; x < 11; ++x) {
+                console.log(x + weatherArray[x].id);
+                if (randomProb <= weatherArray[x].probabilityMax && randomProb >= weatherArray[x].probabilityMin) {
+                    var checkWeather = weatherArray[x];
+                    if (gameData.currentTerrain.type == "forest") {
+                        if (checkWeather.id == "Blizzard") {
+                            var flag = false;
+                        }
+                        else {
+                            return weatherArray[x];
+                        }
+                    }
+                    if (gameData.currentTerrain.type == "plains") {
+                        if (checkWeather.id == "Blizzard" || checkWeather == "Snow") {
+                            var flag = false;
+                        }
+                        else {
+                            return weatherArray[x];
+                        }
+                    }
+                    if (gameData.currentTerrain.type == "mountains") {
+                        if (checkWeather.id == "Very Hot" || checkWeather == "Hot") {
+                            var flag = false;
+                        }
+                        else {
+                            return weatherArray[x];
+                        }
+                    }
+                    if (gameData.currentTerrain.type == "desert") {
+                        if (checkWeather.id == "Blizzard" || checkWeather == "Snow" || checkWeather == "Heavy Rain" || checkWeather == "Heavy Fog") {
+                            var flag = false;
+                        }
+                        else {
+                            return weatherArray[x];
+                        }
+                    }
+                }
             }
-        }
+        }while(flag == false)
     }
     else {
         return gameData.currentWeather;
@@ -71,7 +108,7 @@ function getRandomWeather () {
 }
 //FUNCTION USED TO GET OUR RANDOM TERRAIN
 function getRandomTerrain () {
-    if (gameData.currentPace.pace != "resting" ) {
+    if (gameData.currentPace.pace != "Resting" ) {
            
         //WE SET RANDOM TERRAIN TO A RANDOM TERRAIN FROM THE ARRAY
         var randomTerrain = terrainArray[Math.floor(Math.random() * terrainArray.length)];
@@ -173,31 +210,3 @@ function softReset () {
     gameData.currentHealth = 100;
     gameData.currentPace = paceArray[0] ;
 }
-/*
-function calculateScore (health,days) {
-    days = 45 - days;
-    var score = health * days;
-    return score; 
-}
-
-function sendScore (playerName, score) {
-    var javaDate = new Date();
-    var myDate = javaDate.getMonth() + "/"+ javaDate.getDate() + "/" + javaDate.getFullYear();
-    var score = {name: playerName, score: score, date: myDate};
-    fetch('/api/topTen/newPlayer', {
-        method:'post', headers: {
-        "Content-type": "application/json; charset=UTF-8"},
-        body: JSON.stringify(score)
-    }).then(function(response) {
-        if(response.status !== 200) {
-            console.log('There Was A Problem With The AJAX Call');
-            return;
-        }
-        response.text().then(function(data) {				
-            console.log("Data Received:" + data);
-            console.log("Top Score Sent")
-            return data;
-        });
-    });
-}
-*/

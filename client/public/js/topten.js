@@ -10,7 +10,6 @@ function topTenList() {
             return;
         }
         response.text().then(function(data) {				
-            console.log("Data Received:" + data);
             var list = JSON.parse(data);
             playerList = list;
             populate(list);
@@ -58,7 +57,6 @@ document.body.addEventListener("keydown", function (event) {
     if (event.keyCode === 32) {
         window.location.replace("http://localhost:1337/mainmenu.html");
     }
-    
 });
 
 //FUNCTION FOR THE FADE ON TEXT REFERENCING QUOTES			  

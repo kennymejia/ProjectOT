@@ -176,7 +176,8 @@ function insertData(data) {
     document.getElementById('member4').innerHTML = "Member 4: " + data.players[4].name;
     document.getElementById('profession').innerHTML = "Profession: " + data.profession;
     document.getElementById('money').innerHTML = "Starting Money: " + data.money;
-    document.getElementById('month').innerHTML = "Month Leaving: " + data.startMonth;	
+    document.getElementById('month').innerHTML = "Month Leaving: " + data.startMonth;
+    document.getElementById('enter').innerHTML = "Press Enter To Begin Your Journey";
 }
 
 //FUNCTION FOR THE FADE ON TEXT REFERENCING QUOTES

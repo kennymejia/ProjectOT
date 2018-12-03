@@ -1,5 +1,5 @@
 var choice = 0;
-var position = 1000;
+var position = 1010;
 
 document.body.addEventListener("keydown", function (event) {
     //'LISTENS' FOR THE SHIFT KEY
@@ -99,7 +99,6 @@ function winner (data) {
 function calculateScore (health,days) {
     days = 45 - days;
     var score = health * days;
-    score = 300;
     return score; 
 }
 
@@ -110,17 +109,17 @@ function insertPace(data) {
 function wagon (data) {
     if (data.pace == "Steady")
     {
-        position = position - 40;
+        position = position - 35;
         document.getElementById('wagon').style.left = position + 'px';
     }
     else if (data.pace == "Strenuous")
     {
-        position = position - 50;
+        position = position - 45;
         document.getElementById('wagon').style.left = position + 'px';
     }
     else if (data.pace == "Grueling")
     {
-        position = position - 70;
+        position = position - 65;
         document.getElementById('wagon').style.left = position + 'px';
     }
     else if (data.pace == "Resting")

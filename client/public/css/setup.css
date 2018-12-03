@@ -9,7 +9,7 @@ body {
 	color: white;
 	width: 600px;
 	height: 140px;
-	margin: -10px  0px;
+	margin: -50px  0px;
 	font-size: 20px;
 	text-align: center;
 }
@@ -19,6 +19,15 @@ body {
 	width: 600px;
 	height: 140px;
 	margin: 220px  210px;
+	font-size: 25px;
+	text-align: center;
+}
+#enter{
+	position: absolute;
+	color: white;
+	width: 600px;
+	height: 140px;
+	margin: 520px  210px;
 	font-size: 25px;
 	text-align: center;
 }
