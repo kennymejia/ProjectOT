@@ -63,7 +63,6 @@ function getRandomWeather () {
         do{
             var randomProb = Math.floor(Math.random() * 100);
             for (var x = 0; x < 11; ++x) {
-                console.log(x + weatherArray[x].id);
                 if (randomProb <= weatherArray[x].probabilityMax && randomProb >= weatherArray[x].probabilityMin) {
                     var checkWeather = weatherArray[x];
                     if (gameData.currentTerrain.type == "forest") {
